@@ -15,6 +15,11 @@
 </div>
 
 
-<app-code-block>
-  {{data[0].code}}
-</app-code-block>
+<div *ngFor="let d of data" class="card">
+    <p>Explanation: {{d.explanation}}</p>
+    <p>Categories: {{d.categories}}</p>
+    
+    <app-code-block>
+      {{d.code}}
+    </app-code-block>
+</div>

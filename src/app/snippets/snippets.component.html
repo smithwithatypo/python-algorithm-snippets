@@ -9,17 +9,18 @@
         BFS 
         DFS
         defaultdict
-    
-
-
 </div>
 
 
-<div *ngFor="let d of data" class="card">
-    <p>Explanation: {{d.explanation}}</p>
-    <p>Categories: {{d.categories}}</p>
-    
-    <app-code-block>
-      {{d.code}}
-    </app-code-block>
+<div class="cards">
+    <mat-card *ngFor="let d of data">
+        <mat-card-title>Explanation: {{d.explanation}}</mat-card-title>
+        <mat-card-content>
+            <app-code-block>
+                {{d.code}}
+              </app-code-block>
+        </mat-card-content>
+        <mat-card-footer>Categories: {{d.categories}}</mat-card-footer>
+    </mat-card>
 </div>
+

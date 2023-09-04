@@ -6,6 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SnippetsComponent } from './snippets/snippets.component';
 import { CodeBlockComponent } from './shared/components/code-block/code-block.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { CodeBlockComponent } from './shared/components/code-block/code-block.co
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

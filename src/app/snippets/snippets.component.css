@@ -10,3 +10,24 @@
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+mat-card {
+  margin: 1rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+mat-card-title {
+  padding: 0.9rem;
+}
+
+mat-card-footer {
+  padding: 0.9rem;
+}

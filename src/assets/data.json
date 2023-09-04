@@ -1,0 +1,6 @@
+{
+  "code": "print()",
+  "explanation": "prints",
+  "use_case": "prints stuff sometimes",
+  "categories": ["print", "stuff"]
+}

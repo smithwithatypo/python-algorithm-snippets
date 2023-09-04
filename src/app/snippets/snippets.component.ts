@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Snippet } from '../models/snippet';
 
 @Component({
   selector: 'app-snippets',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./snippets.component.css']
 })
 export class SnippetsComponent {
-  
+  data: Snippet[] = [];
 
+  constructor() {
+  this.data.push(new Snippet("code", "explanation", "use_case", new Set<string>(["category"])));
+  
+  }
 
 
 }

@@ -1,0 +1,15 @@
+.code-block {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.code-block:hover {
+  background-color: #e8e8e8;
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Snippet } from '../models/snippet';
-import { DataServiceService } from '../services/data-service.service';
+import { data_source } from '../../assets/data';
 
 @Component({
   selector: 'app-snippets',
@@ -10,12 +10,9 @@ import { DataServiceService } from '../services/data-service.service';
 export class SnippetsComponent {
   data: Snippet[] = [];
 
-  constructor( private dataService: DataServiceService) { }
-
-  ngOnInit(): void {
-    this.dataService.getData().subscribe(data => this.data = data);
+  constructor( ) { 
+    this.data = data_source;
   }
-
 
 
 }

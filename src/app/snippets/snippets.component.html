@@ -1,20 +1,11 @@
 <div class="container">
-    <h2>Patterns</h2>
-    <p>Make list of code tools for each pattern.</p>
-        Counter
-        two pointer for loop
-        heapq
-        prefix sum
-        recursion
-        BFS 
-        DFS
-        defaultdict
+    <h1>Code Snippets for Algorithms</h1>
 </div>
 
 
 <div class="cards">
     <mat-card *ngFor="let d of data">
-        <mat-card-title>Explanation: {{d.explanation}}</mat-card-title>
+        <mat-card-title>{{d.explanation}}</mat-card-title>
         <mat-card-content>
             <app-code-block>
                 {{d.code}}

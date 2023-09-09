@@ -2,24 +2,22 @@ import { Snippet } from '../app/models/snippet';
 
 export const data_source: Snippet[] = [
 {
-    code: 
+    code:
 `
-for i in range(10):
-    print(i)
-now print 10
+from Collections import Counter
+
+count = Counter(iterable)
 `,
-    explanation: "this is the explanation",
-    categories: ["testing", "this", "too"]
+    explanation: "counts everything in iterable",
+    categories: ["count"]
 },
 
 {
     code:
 `
-from Collections import Counter
-
-count = Counter(s)
+R - L + 1
 `,
-    explanation: "counts everything in s",
-    categories: ["count", "hashmap"]
+    explanation: "current window size",
+    categories: ["sliding window"]
 }
 ];

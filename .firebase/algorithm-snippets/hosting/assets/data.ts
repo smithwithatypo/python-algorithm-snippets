@@ -176,6 +176,110 @@ def hasCycle(head):
     categories: ["two pointers", "slow and fast", "linked list"]
 },
 
+{
+    code:
+`
+l, r = 0, len(nums) - 1
+
+while l <= r:
+    m = (l + r) // 2)
+    if nums[m] > target:
+        r = m - 1
+    elif nums[m] < target:
+        l = m + 1
+    else:
+        return m
+return -1
+`,
+    explanation: "binary search",
+    categories: ["binary search"]
+},
+
+{
+    code:
+`
+import heapq
+
+heapq.heapify(iterable) # min heap
+heappush(heap, item)    # adds item to heap
+heappop(heap)           # pops smallest item
+`,
+    explanation: "heap",
+    categories: ["heap", "heapify"]
+},
+
+{
+    code:
+`
+def canAttendMeetings(self, intervals):
+    intervals.sort(key=lambda i: i[0])
+
+    for i in range(1, len(intervals)):
+        i1 = intervals[i - 1]
+        i2 = intervals[i]
+
+        if i1[1] > i2[0]:
+            return False
+    return True
+`,
+    explanation: "overlapping intervals - leetcode meeting rooms",
+    categories: ["sort", "intervals", "meeting rooms"]
+}, 
+
+{
+    code:
+`
+list.sort()      # in-place stable sort (lists only)
+sorted(iterable) # returns new sorted   (iterable)
+`,
+    explanation: "sort in place versus copy",
+    categories: ["sort", "in place"]
+},
+
+{
+    code:
+`
+def merge(self, intervals):
+    intervals.sort(key=lambda pair: pair[0])
+    output = [intervals[0]]
+
+    for start, end in intervals:
+        lastEnd = output[-1][1]
+
+        if start <= lastEnd:
+            output[-1][1] = max(lastEnd, end)
+        else:
+            output.append([start, end])
+    return output
+
+`,
+    explanation: "overlapping intervals - leetcode merge intervals",
+    categories: ["sort", "intervals", "merge intervals"]
+},
+
+{
+    code: 
+`
+def subsets(self, nums):
+    res = []
+    subset = []
+
+    def dfs(i):
+        if i >= len(nums):
+            res.append(subset.copy())
+            return
+        
+        subset.append(nums[i])  # decision to include nums[i]
+        dfs(i + 1)
+        subset.pop()   # decision NOT to include nums[i]
+        dfs(i + 1)
+
+    dfs(0)
+    return res
+`,
+    explanation: "backtracking: leetcode subsets",
+    categories: ["backtracking", "subsets"]
+}
 
 
 ];

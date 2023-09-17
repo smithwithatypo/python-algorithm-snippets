@@ -279,6 +279,21 @@ def subsets(self, nums):
 `,
     explanation: "backtracking: leetcode subsets",
     categories: ["backtracking", "subsets"]
+},
+
+{
+    code:
+`
+def topKFrequent(self, nums, k):
+    if k == len(nums):
+        return nums
+
+    count = Counter(nums)
+
+    return heapq.nlargest(k, count.keys(), key=count.get)
+`,
+    explanation: "heap: leetcode top k frequent elements",
+    categories: ["heap", "top k elements"]
 }
 
 

@@ -8,6 +8,8 @@ import { SnippetsComponent } from './snippets/snippets.component';
 import { CodeBlockComponent } from './shared/components/code-block/code-block.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { MatCardModule } from '@angular/material/card';
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

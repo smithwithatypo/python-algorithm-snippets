@@ -14,5 +14,12 @@ export class SnippetsComponent {
     this.data = data_source;
   }
 
+  applyFilter(event: KeyboardEvent) {
+    const inputValue = (event.target as HTMLInputElement).value;
+    this.data = data_source.filter((item) => {
+      return item.categories.some(category => category.toLowerCase().includes(inputValue.toLowerCase()));
+    });
+
+  }
 
 }

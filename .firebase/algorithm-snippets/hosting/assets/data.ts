@@ -200,11 +200,14 @@ return -1
 `
 import heapq
 
-heapq.heapify(iterable) # min heap
-heappush(heap, item)    # adds item to heap
-heappop(heap)           # pops smallest item
+heapq.heapify(iterable)       # min heap by default
+heapq.heappush(minheap, item) # add item
+heapq.heappop(minheap)        # pop smallest item
+
+heapq.heappush(heap, -item)   # max heap, stores as negative
+-heapq.heappop(heap)          # pop largest item as positive
 `,
-    explanation: "heap",
+    explanation: "heap basics",
     categories: ["heap", "heapify"]
 },
 
@@ -223,7 +226,7 @@ def canAttendMeetings(self, intervals):
     return True
 `,
     explanation: "overlapping intervals - leetcode meeting rooms",
-    categories: ["sort", "intervals", "meeting rooms"]
+    categories: ["sort", "intervals", "meeting rooms", "leetcode"]
 }, 
 
 {
@@ -254,7 +257,7 @@ def merge(self, intervals):
 
 `,
     explanation: "overlapping intervals - leetcode merge intervals",
-    categories: ["sort", "intervals", "merge intervals"]
+    categories: ["sort", "intervals", "merge intervals", "leetcode"]
 },
 
 {
@@ -278,7 +281,94 @@ def subsets(self, nums):
     return res
 `,
     explanation: "backtracking: leetcode subsets",
-    categories: ["backtracking", "subsets"]
+    categories: ["backtracking", "subsets", "leetcode"]
+},
+
+{
+    code:
+`
+def topKFrequent(self, nums, k):
+    if k == len(nums):
+        return nums
+
+    count = Counter(nums)
+
+    return heapq.nlargest(k, count.keys(), key=count.get)
+`,
+    explanation: "heap: leetcode top k frequent elements",
+    categories: ["heap", "top k elements", "leetcode"]
+}, 
+
+{
+    code:
+`
+stack.append()  # push
+stack.pop()     # pop
+stack[-1]       # peek top
+`,
+    explanation: "stack basics",
+    categories: ["stack"]
+},
+
+{
+    code:
+`
+from collections import deque
+queue = deque()
+
+queue.append()   # enqueue
+queue.popleft()  # dequeue
+queue[0]         # peek front
+`,
+    explanation: "queue basics",
+    categories: ["queue"]
+},
+
+{
+    code:
+`
+node = ListNode()   # add node
+node.next = head
+head = node
+
+node.next = node.next.next  # remove node
+
+while node:        # traverse
+    node = node.next
+
+`,
+    explanation: "linked list basics",
+    categories: ["linked list"]
+},
+
+{
+    code:
+`
+dummy.next = head        # dummy node
+# dummy -> head -> node -> node -> None
+`,
+    explanation: "dummy node",
+    categories: ["linked list", "dummy node"]
+},
+
+{
+    code:
+`
+def group_anagrams(words):
+    d = {}
+
+    for word in words:
+        sorted_word = "".join(sorted(word))
+        
+        if sorted_word not in d:
+            d[sorted_word] = [word]
+        else:
+            d[sorted_word].append(word)
+
+    return list(d.values())
+`,
+    explanation: "hashmap: leetcode group anagrams",
+    categories: ["hashmap", "anagrams", "group anagrams", "leetcode"]
 }
 
 

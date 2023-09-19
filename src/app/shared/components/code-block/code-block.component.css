@@ -1,15 +1,33 @@
 .code-block {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
-  padding: 10px 15px;
   border-radius: 5px;
   font-family: "Courier New", Courier, monospace;
   font-size: 12px;
   line-height: 1.5;
   white-space: pre-wrap;
-  overflow-x: scroll;
+  min-width: max-content;
+  width: 100%;
+  overflow-y: hidden; /* Prevent child vertical scrolling */
+  overflow-x: auto; /* Allow child horizontal scrolling */
+  position: relative;
 }
 
-.code-block:hover {
-  background-color: #e8e8e8;
+.code-block::before, .code-block::after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 100%;
+  position: absolute;
+}
+
+.code-block::before {
+  left: -15px;
+}
+
+/* Hide code-block scrollbar on desktops */
+@media only screen and (max-width: 768px) {
+  .code-block::after {
+    right: -70vw;
+  }
 }

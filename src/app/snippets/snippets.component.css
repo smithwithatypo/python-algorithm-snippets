@@ -5,6 +5,7 @@
   justify-content: left;
   margin: 20px;
   padding: 10px;
+  /* border: 1px solid red; */
 }
 
 .card {
@@ -17,6 +18,8 @@
   width: 300px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
+  border: 1px solid red;
+
 }
 
 .cards {
@@ -24,12 +27,15 @@
   flex-wrap: wrap;
   justify-content: left;
   margin: 0 auto;
+  /* border: 1px solid red; */
+
 }
 
 mat-card {
   margin: 1rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   overflow: hidden;
+  background-color: rgb(165, 165, 173);
 }
 
 mat-card-title {

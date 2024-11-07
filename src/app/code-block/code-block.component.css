@@ -1,17 +1,19 @@
 .code-block {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  /* background-color: #f0f0f0; */
+  background-color: rgb(221, 221, 228);
   border-radius: 5px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   white-space: pre-wrap;
-  min-width: max-content;
-  width: 100%;
+  /* min-width: max-content; */
+  /* width: 100%; */
   overflow-y: hidden; /* Prevent child vertical scrolling */
   overflow-x: auto; /* Allow child horizontal scrolling */
   position: relative;
+  padding: 0px 7px;  
 }
+
 
 .code-block::before, .code-block::after {
   content: "";
@@ -23,7 +25,7 @@
 
 .code-block::before {
   left: -15px;
-}
+} 
 
 /* Hide code-block scrollbar on desktops */
 @media only screen and (max-width: 768px) {

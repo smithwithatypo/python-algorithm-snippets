@@ -34,7 +34,7 @@ def factorial(n):
 
     return n * factorial(n - 1)
 `,
-    explanation: "recursion simple example",
+    explanation: "recursion",
     categories: ["recursion"]
 },
     
@@ -89,8 +89,8 @@ for item in list:
     else:
         # process
 `,
-    explanation: "init hashmap from list",
-    categories: ["hashmap"]
+    explanation: "create a dictionary",
+    categories: ["hashmap", "dictionary"]
 },
 
 {
@@ -163,22 +163,6 @@ def dp(n):
 {
     code:
 `
-def hasCycle(head):
-    slow, fast = head, head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
-`,
-    explanation: "two pointers: find cycle in a linked list",
-    categories: ["two pointers", "slow and fast", "linked list"]
-},
-
-{
-    code:
-`
 l, r = 0, len(nums) - 1
 
 while l <= r:
@@ -242,51 +226,6 @@ sorted(iterable) # returns new sorted   (iterable)
 {
     code:
 `
-def merge(self, intervals):
-    intervals.sort(key=lambda pair: pair[0])
-    output = [intervals[0]]
-
-    for start, end in intervals:
-        lastEnd = output[-1][1]
-
-        if start <= lastEnd:
-            output[-1][1] = max(lastEnd, end)
-        else:
-            output.append([start, end])
-    return output
-
-`,
-    explanation: "overlapping intervals - leetcode merge intervals",
-    categories: ["sort", "intervals", "merge intervals", "leetcode"]
-},
-
-{
-    code: 
-`
-def subsets(self, nums):
-    res = []
-    subset = []
-
-    def dfs(i):
-        if i >= len(nums):
-            res.append(subset.copy())
-            return
-        
-        subset.append(nums[i])  # decision to include nums[i]
-        dfs(i + 1)
-        subset.pop()   # decision NOT to include nums[i]
-        dfs(i + 1)
-
-    dfs(0)
-    return res
-`,
-    explanation: "backtracking: leetcode subsets",
-    categories: ["backtracking", "subsets", "leetcode"]
-},
-
-{
-    code:
-`
 def topKFrequent(self, nums, k):
     if k == len(nums):
         return nums
@@ -295,8 +234,8 @@ def topKFrequent(self, nums, k):
 
     return heapq.nlargest(k, count.keys(), key=count.get)
 `,
-    explanation: "heap: leetcode top k frequent elements",
-    categories: ["heap", "top k elements", "leetcode"]
+    explanation: "heap: top k frequent elements",
+    categories: ["heap", "top k elements"]
 }, 
 
 {
@@ -487,9 +426,24 @@ del person                        # Delete the object
     categories: ["object", "class", "struct", "crud"]
 },
 
+{
+    code:
+`
+# BASIC METHODS
+"needle" in "haystack"  # check membership
+str.find(substring)     # returns index of first occurence, or -1
+str.replace(old, new)
+str.lower()
+str.upper()
+str.startswith(prefix)
 
+# FORMAT
+f"{variable}"
 
-
+`,
+    explanation: "Strings",
+    categories: ["strings", "array"]
+},
 
 
 

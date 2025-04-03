@@ -34,7 +34,7 @@ def factorial(n):
 
     return n * factorial(n - 1)
 `,
-    explanation: "recursion simple example",
+    explanation: "recursion",
     categories: ["recursion"]
 },
     
@@ -89,8 +89,8 @@ for item in list:
     else:
         # process
 `,
-    explanation: "init hashmap from list",
-    categories: ["hashmap"]
+    explanation: "create a dictionary",
+    categories: ["hashmap", "dictionary"]
 },
 
 {
@@ -163,22 +163,6 @@ def dp(n):
 {
     code:
 `
-def hasCycle(head):
-    slow, fast = head, head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
-`,
-    explanation: "two pointers: find cycle in a linked list",
-    categories: ["two pointers", "slow and fast", "linked list"]
-},
-
-{
-    code:
-`
 l, r = 0, len(nums) - 1
 
 while l <= r:
@@ -242,51 +226,6 @@ sorted(iterable) # returns new sorted   (iterable)
 {
     code:
 `
-def merge(self, intervals):
-    intervals.sort(key=lambda pair: pair[0])
-    output = [intervals[0]]
-
-    for start, end in intervals:
-        lastEnd = output[-1][1]
-
-        if start <= lastEnd:
-            output[-1][1] = max(lastEnd, end)
-        else:
-            output.append([start, end])
-    return output
-
-`,
-    explanation: "overlapping intervals - leetcode merge intervals",
-    categories: ["sort", "intervals", "merge intervals", "leetcode"]
-},
-
-{
-    code: 
-`
-def subsets(self, nums):
-    res = []
-    subset = []
-
-    def dfs(i):
-        if i >= len(nums):
-            res.append(subset.copy())
-            return
-        
-        subset.append(nums[i])  # decision to include nums[i]
-        dfs(i + 1)
-        subset.pop()   # decision NOT to include nums[i]
-        dfs(i + 1)
-
-    dfs(0)
-    return res
-`,
-    explanation: "backtracking: leetcode subsets",
-    categories: ["backtracking", "subsets", "leetcode"]
-},
-
-{
-    code:
-`
 def topKFrequent(self, nums, k):
     if k == len(nums):
         return nums
@@ -295,8 +234,8 @@ def topKFrequent(self, nums, k):
 
     return heapq.nlargest(k, count.keys(), key=count.get)
 `,
-    explanation: "heap: leetcode top k frequent elements",
-    categories: ["heap", "top k elements", "leetcode"]
+    explanation: "heap: top k frequent elements",
+    categories: ["heap", "top k elements"]
 }, 
 
 {
@@ -354,22 +293,158 @@ dummy.next = head        # dummy node
 {
     code:
 `
-def group_anagrams(words):
-    d = {}
+# CREATE
+my_list = []
+my_list = list("hello")
+squares = [x**2 for x in range(5)]
 
-    for word in words:
-        sorted_word = "".join(sorted(word))
-        
-        if sorted_word not in d:
-            d[sorted_word] = [word]
-        else:
-            d[sorted_word].append(word)
+# READ
+first_item = my_list[0]
+last_item = my_list[-1]
+length = len(my_list)
+slice = my_list[0:3]
 
-    return list(d.values())
+# UPDATE
+my_list[0] = 10
+my_list.append(4)
+my_list.insert(1, 5)    # insert at position
+
+# DELETE
+del my_list[0]          # delete at index 0
+my_list.remove(3)       # remove by value (first occurence)
+item = my_list.pop()    # Remove & return last item
+item = my_list.pop(1)   # Remove & return index 1
+my_list.clear()         # Remove all items
+
 `,
-    explanation: "hashmap: leetcode group anagrams",
-    categories: ["hashmap", "anagrams", "group anagrams", "leetcode"]
-}
+    explanation: "CRUD List",
+    categories: ["list", "array", "crud"]
+},
+
+{
+    code:
+`
+# CREATE
+my_dict = {}
+my_dict = {"key": "value", "num": 42}
+my_dict = dict(name="John", age=30)
+
+# READ
+value = my_dict["key"]            # Access by key (raises KeyError if not found)
+value = my_dict.get("key")        # Access by key (returns None if not found)
+value = my_dict.get("key", "default")  # With default value
+keys = my_dict.keys()             # Get all keys
+values = my_dict.values()         # Get all values
+items = my_dict.items()           # Get all (key, value) pairs
+length = len(my_dict)             # Get number of items
+
+# UPDATE
+my_dict["key"] = "new value"      # Add or update entry
+my_dict.update({"a": 1, "b": 2})  # Add/update multiple entries
+my_dict.update(c=3, d=4)          # Another way to update
+value = my_dict.setdefault("key", "default")  # Get value or set default if key doesn't exist
+
+# DELETE
+del my_dict["key"]                # Delete by key
+value = my_dict.pop("key")        # Remove & return value
+value = my_dict.pop("key", "default")  # With default value if key not found
+item = my_dict.popitem()          # Remove & return (key, value) pair (last inserted)
+my_dict.clear()                   # Remove all items
+
+`,
+    explanation: "CRUD Dictionary",
+    categories: ["dictionary", "hashmap", "crud"]
+},
+
+{
+    code:
+`
+# CREATE
+my_set = set()                    # Empty set
+my_set = {1, 2, 3}                # Initialize with values
+my_set = set([1, 2, 2, 3])        # From iterable (duplicates removed)
+
+# READ
+length = len(my_set)              # Get number of elements
+if 3 in my_set:                   # Check if element exists
+    print("Found 3")
+
+# UPDATE
+my_set.add(4)                     # Add single element
+my_set.update([4, 5, 6])          # Add multiple elements
+my_set |= {5, 6}                  # Union update (alternate way to add)
+
+# Set operations
+union = my_set | other_set        # Union (elements in either)
+intersection = my_set & other_set # Intersection (elements in both)
+difference = my_set - other_set   # Difference (elements in my_set but not other_set)
+symmetric_diff = my_set ^ other_set  # Symmetric difference (elements in either but not both)
+
+# DELETE
+my_set.remove(3)                  # Remove element (raises KeyError if not found)
+my_set.discard(3)                 # Remove if present (no error if not found)
+element = my_set.pop()            # Remove and return arbitrary element
+my_set.clear()                    # Remove all elements
+
+`,
+    explanation: "CRUD Set",
+    categories: ["set", "hashset", "crud"]
+},
+
+{
+    code:
+`
+# CREATE
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Hello, my name is {self.name}"
+
+person = Person("John", 30)
+
+# READ
+name = person.name                # Access attribute
+greeting = person.greet()         # Call method
+attributes = vars(person)         # Get all attributes as dict
+has_attr = hasattr(person, "name")  # Check if attribute exists
+
+# UPDATE
+person.name = "Jane"              # Modify attribute
+person.email = "jane@example.com" # Add new attribute
+setattr(person, "age", 31)        # Set attribute using setattr
+
+# DELETE
+del person.email                  # Delete attribute
+delattr(person, "age")            # Delete attribute using delattr
+del person                        # Delete the object
+
+`,
+    explanation: "CRUD Object",
+    categories: ["object", "class", "struct", "crud"]
+},
+
+{
+    code:
+`
+# BASIC METHODS
+"needle" in "haystack"  # check membership
+str.find(substring)     # returns index of first occurence, or -1
+str.replace(old, new)
+str.lower()
+str.upper()
+str.startswith(prefix)
+
+# FORMAT
+f"{variable}"
+
+`,
+    explanation: "Strings",
+    categories: ["strings", "array"]
+},
+
 
 
 ];

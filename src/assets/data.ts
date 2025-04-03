@@ -198,24 +198,6 @@ heapq.heappush(heap, -item)   # max heap, stores as negative
 {
     code:
 `
-def canAttendMeetings(self, intervals):
-    intervals.sort(key=lambda i: i[0])
-
-    for i in range(1, len(intervals)):
-        i1 = intervals[i - 1]
-        i2 = intervals[i]
-
-        if i1[1] > i2[0]:
-            return False
-    return True
-`,
-    explanation: "overlapping intervals - leetcode meeting rooms",
-    categories: ["sort", "intervals", "meeting rooms", "leetcode"]
-}, 
-
-{
-    code:
-`
 list.sort()      # in-place stable sort (lists only)
 sorted(iterable) # returns new sorted   (iterable)
 `,
